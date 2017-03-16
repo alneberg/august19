@@ -31,7 +31,19 @@
         <p>Allt gott!</p>
         <p> // Johanna och Johannes</p>
       </div>
-      <div class="row">
+      <div class="row", id="location_row">
+        <div class="col-md-6">
+          <h3>Vigsel</h3>
+          <p>Vigseln kommer att äga rum i Västtjärnslindan, en levande fäbod söder om Mockfjärd.</p>
+          <div id="vigselkarta"></div>
+        </div>
+        <div class="col-md-6">
+          <h3>Fest</h3>
+          <p>Middag och fest sker i Bodarnas (“Boans”) bystuga söder om Djurås.</p>
+          <div id="festkarta"></div>
+        </div>
+      </div>
+      <div class="row", id="imaged_row">
         <div class="col-md-6 tilt_left pic">
           <img src="images/johanna_johannes_1.png">
         </div>
@@ -40,6 +52,33 @@
         </div>
       </div>
     </div>
+    <script>
+      function initMap() {
+        var center_loc = {lat: 60.51, lng: 15.035};
+        var location = {lat: 60.459580, lng: 14.992884};
+        var map = new google.maps.Map(document.getElementById('vigselkarta'), {
+          zoom: 10,
+          center: center_loc
+        });
+        var marker = new google.maps.Marker({
+          position: location,
+          map: map
+        });
+        
+        var location = {lat: 60.544424, lng: 15.126537};
+        var map = new google.maps.Map(document.getElementById('festkarta'), {
+          zoom: 10,
+          center: center_loc
+        });
+        var marker = new google.maps.Marker({
+          position: location,
+          map: map
+        });
+      }
+    </script>
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDJzZct_Zgnn5b_tY_8qSESoovwCzCVST0&callback=initMap">
+    </script>
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
   </body>
